@@ -1,0 +1,14 @@
+
+
+docker build -t skitick-app .
+
+docker build -t skitick-app .
+
+docker tag skitick-app me-west1-docker.pkg.dev/dmeiry-1/skitick-repo/skitick-app:latest
+
+gcloud auth configure-docker  me-west1-docker.pkg.dev
+docker push me-west1-docker.pkg.dev/dmeiry-1/skitick-repo/skitick-app:latest
+
+
+docker ps
+docker stop
