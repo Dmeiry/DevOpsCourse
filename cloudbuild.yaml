@@ -8,7 +8,8 @@ steps:
   args: ['push', 'us-central1-docker.pkg.dev/dmeiry-7/project-repo/skitick2:latest']
 
 # Step 3: Deploy the Docker image to Google Cloud Run
-- name: 'gcr.io/cloud-builders/gcloud'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: 'gcloud'
   args:
     - 'run'
     - 'deploy'
