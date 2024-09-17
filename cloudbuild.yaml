@@ -21,6 +21,7 @@ steps:
     - '--region'
     - 'us-central1'  # Replace with your desired region
     - '--allow-unauthenticated'  # Optional: Allows unauthenticated access; remove if not needed
+
 images:
 - 'us-central1-docker.pkg.dev/dmeiry-7/project-repo/skitick2:latest'
 
