@@ -12,3 +12,8 @@ docker push me-west1-docker.pkg.dev/dmeiry-1/skitick-repo/skitick-app:latest
 
 docker ps
 docker stop
+
+===== used for the build and deploy
+
+gcloud services enable run.googleapis.com
+
