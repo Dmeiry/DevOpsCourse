@@ -1,11 +1,11 @@
 steps:
 # Step 1: Build the Docker image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'me-west1-docker.pkg.dev/dmeiry-7/proj-repo/skitick2:latest', '.']
+  args: ['build', '-t', 'me-west1-docker.pkg.dev/dmeiry-7/project-repo/skitick2:latest', '.']
 
 # Step 2: Push the Docker image to Google Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'me-west1-docker.pkg.dev/dmeiry-7/proj-repo/skitick2:latest']
+  args: ['push', 'me-west1-docker.pkg.dev/dmeiry-7/project-repo/skitick2:latest']
 
 # Step 3: Deploy the Docker image to Google Cloud Run
 - name: 'gcr.io/cloud-builders/gcloud'
@@ -14,16 +14,15 @@ steps:
     - 'deploy'
     - 'skitick2'  # Replace with your Cloud Run service name
     - '--image'
-    - 'me-west1-docker.pkg.dev/dmeiry-7/proj-repo/skitick2:latest'
+    - 'me-west1-docker.pkg.dev/dmeiry-7/project-repo/skitick2:latest'
     - '--platform'
     - 'managed'
     - '--region'
-    - 'me-west1'  # Replace with your desired region
+    - 'us-central1'  # Replace with your desired region
     - '--allow-unauthenticated'  # Optional: Allows unauthenticated access; remove if not needed
 
 images:
-- 'me-west1-docker.pkg.dev/dmeiry-7/proj-repo/skitick2:latest'
-
+- 'me-west1-docker.pkg.dev/dmeiry-7/project-repo/skitick2:latest'
 
 options:
   logging: CLOUD_LOGGING_ONLY  # Logs will be sent to Cloud Logging only
