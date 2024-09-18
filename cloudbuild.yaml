@@ -1,7 +1,7 @@
 steps:
 # Step 1: Build the Docker image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-central1-docker.pkg.dev/dmeiry-7/project-repo/skitick2:latest', '.']
+  args: ['build', '--build-arg' , 'MONGO_URI=${{ secrets.MONGO_URI }}' , '-t', 'us-central1-docker.pkg.dev/dmeiry-7/project-repo/skitick2:latest', '.']
 
 # Step 2: Push the Docker image to Google Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
@@ -12,6 +12,8 @@ steps:
   entrypoint: 'gcloud'
   args:
     - 'run'
+    - --set-env
+    - MONGO_URI=${{ secrets.MONGO_URI }}
     - 'deploy'
     - 'skitick2'  # Replace with your Cloud Run service name
     - '--image'
