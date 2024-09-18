@@ -17,3 +17,11 @@ docker stop
 
 gcloud services enable run.googleapis.com
 
+===== secret
+
+npm install @google-cloud/secret-manager
+npm install @google-cloud/secret-manager
+
+gcloud secrets create my-secret --data-file=.env
+ and then write the db.js file as needed 
+ 
