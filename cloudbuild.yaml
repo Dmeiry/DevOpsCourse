@@ -12,8 +12,6 @@ steps:
   entrypoint: 'gcloud'
   args:
     - 'run'
-    - --set-env
-    - MONGO_URI=${{ secrets.MONGO_URI }}
     - 'deploy'
     - 'skitick2'  # Replace with your Cloud Run service name
     - '--image'
